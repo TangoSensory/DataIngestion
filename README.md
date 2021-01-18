@@ -30,7 +30,7 @@ A solution to meet the following spec
 }
 ```
 
-![Test Image 1](https://github.com/GetLinkfire/DataIngestion.TestAssignment/blob/main/diagram.png)
+![Test Image 1](diagram.png)
 
 ### Prerequisites:
 - Docker
