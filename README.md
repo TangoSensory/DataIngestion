@@ -1,6 +1,7 @@
 # DataIngestion
 
-A solution to meet the following spec
+A time-constrained (partial)solution to meet the following spec:
+
 
 # DataIngestion Challenge
 
@@ -54,3 +55,32 @@ We want to get a better understanding of:
 - Please don't fork this project and create your own repository.
 - Please send us whatever you have done before the deadline even if it is an incompleted task.
 - Don't hesitate to contact us for questions and support while working on the task.
+
+
+# Notes/Assumptions
+
+- In an effort to keep it simple, and minimise dev time, parts of it are coded in a non-production way. Eg. In-memory data collections rather that a DB store. 
+- I felt that setting up Microservices and even a DB store was overkill, and would have extended the time further
+  - However, I didn't appreciate the size of the input files when I designed the solution
+- Retrieving data from the Google drive wasn't straightforward due to a Virus scan message & subsequent confirmation.
+    - The GoogleDrive API documentation was geared towards an owned project/application, so I wasn't sure how that would apply to a shared folder
+- The solution works for the smaller input files but is failing "Stream too long" on at least one of the larger ones when decompressing. 
+    - Given more time I might have explored different Decompression techniques
+- What is working:
+   - SourceRepo/Downloads
+   - Dependency Injection
+   - ETL for smaller input files
+     - Decompression
+     - Data Parsing
+     - Dto creation
+  - AlbumBuilder successfully creates a collection of Album objects (tested via Unit tests). 
+    - However, I feel that the in-memory approach taken would not be optimal given the size of the data and might fail if I was able to run against the input data once the decompression issue was resolved. In a production system I would use a local data-store - probably Entity Framework + SQL Server
+  - The sample Unit tests I've created
+- What is not working
+   - ETL for larger input files
+     - Decompression failing with "Stream too long" exception
+   - Because of the above, Data parsing and Dto creation are not fully tested, but should work fine
+     - Artist Data parsing and Dto creation tested via Unit Tests & working fine
+- What is incomplete
+   - The SearchRepo & Data upload
+     - I didn't feel I had enough info to complete this
