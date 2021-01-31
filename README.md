@@ -1,7 +1,8 @@
 # DataIngestion
 
-A time-constrained (partial)solution to meet the following spec:
+** NOT A PRODUCTION SYSTEM - Coded in a time-limited manner as part of a job application **
 
+A time-constrained partial solution to meet the following spec:
 
 # DataIngestion Challenge
 
